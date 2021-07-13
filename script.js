@@ -6,6 +6,8 @@ async function testTaxiResult(){
     const browser = await puppeteer.launch({
         headless: false, // выключен безголовый режим
         slowMo: 100, // замедление, чтобы отслеживать выполнение теста
+        defaultViewport: null, //развернуть окно
+        args: ['--start-maximized'] 
     });
 
     console.log('Создание новой вкладки в браузере');
