@@ -1,11 +1,11 @@
 //подключить модуль с Puppeteer`ом
 const puppeteer = require('puppeteer'); 
 
-async function testTaxiResult(){
+async function test(){
     console.log('Запуск браузера');
     const browser = await puppeteer.launch({
         headless: false, // выключен безголовый режим
-        slowMo: 100, // замедление, чтобы отслеживать выполнение теста
+        slowMo: 200, // замедление, чтобы отслеживать выполнение теста
         defaultViewport: null, //развернуть окно
         args: ['--start-maximized'] 
     });
@@ -14,9 +14,9 @@ async function testTaxiResult(){
     const page = await browser.newPage();
 
     console.log('Переход по ссылке');
-    await page.goto('https://www.avito.ru/barnaul/doma_dachi_kottedzhi/dom_68_m_na_uchastke_5_sot._2197340652');
+    await page.goto('https://2gis.ru/barnaul');
 
-    await page.screenshot({path: 'testTaxiResult.png'});
+    await page.screenshot({path: 'screen.png'});
 
     // самого теста всё ещё нет
 
@@ -24,4 +24,4 @@ async function testTaxiResult(){
     await browser.close();
 }
 
-testTaxiResult(); 
+test(); 
